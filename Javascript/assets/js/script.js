@@ -1,0 +1,207 @@
+//1.Write a simple JavaScript program to print expected Output using following array.
+let Mycolor = ["Red", "Green", "White", "Black"];
+
+//Red,Green,White,Black
+document.getElementById("ques1_span1").innerText = Mycolor.join(",");
+//Red+Green+White+Black
+document.getElementById("ques1_span2").innerText = Mycolor.join("+");
+//Red,Green,White
+document.getElementById("ques1_span3").innerText = Mycolor.slice(0, 3);
+//Red
+document.getElementById("ques1_span4").innerText = Mycolor[0];
+//Green,White
+document.getElementById("ques1_span5").innerText = Mycolor.slice(1, 3);
+//Red,Green,White,Black,orange
+Mycolor.push("orange");
+document.getElementById("ques1_span6").innerText = Mycolor;
+
+//2.Write a JavaScript program to get sum of all array element using for loop and foreach loop.
+
+let sum = [30, 40, 50];
+let total = 0;
+let total2 = 0;
+
+document.getElementById("ques2_a").innerText = sum; //here, i'm showing given number on the web page
+
+for (let i = 0; i < sum.length; i++) {
+    total += sum[i];
+}
+document.getElementById("ques2_Ans1").innerText = total;
+
+//usig foreach loop
+sum.forEach(function (value) {
+    total2 = total2 + value;
+});
+
+document.getElementById("ques2_Ans2").innerText = total2;
+
+//3.Write a JavaScript program to print a maximum and minimum value of given array.(using function and logic)
+
+let number = [5, 10, 20, 65, -5];
+document.getElementById("ques3").innerText = number;
+
+function maxMin() {
+
+    let max = number[0];
+    let min = number[0];
+
+    for (let i = 0; i < number.length; i++) {
+
+        if (number[i] > max) {
+            max = number[i];
+        }
+
+        if (number[i] < min) {
+            min = number[i];
+        }
+    }
+
+    document.getElementById("ques3_Ans1").innerText = max;
+    document.getElementById("ques3_Ans2").innerText = min;
+
+}
+maxMin();
+
+//4.Write a JavaScript program for convert all array element in ASCII value.
+let arr4 = ["A", "B", "C", "D"];
+
+document.getElementById("ques4").innerText = arr4;
+
+for (let i = 0; i < arr4.length; i++) {
+
+     if (i > 0) {
+        document.getElementById("ques4_Ans").innerText += ",";
+    }
+
+    document.getElementById("ques4_Ans").innerText +=  arr4[i].charCodeAt(0);
+
+}
+
+//5.Write a JavaScript program for remove negative values using the filter array function.
+// numbers = [-23,-20,-17, -12, -5, 0, 1, 5, 12, 19, 20];
+
+let ques5 = [-23, -20, -17, -12, -5, 0, 1, 5, 12, 19, 20];
+let Negative = ques5.filter(checkNumber);
+
+document.getElementById("ques5").innerText = ques5;
+
+function checkNumber(ques5) {
+    return ques5 >= 0;
+}
+
+document.getElementById("ques5_Ans").innerText = Negative;
+
+//6. Write a JavaScript program using array map() method and return the  square of array element.
+//arr = [2, 5, 6, 3, 8, 9];
+
+const ques6 = [2, 5, 6, 3, 8, 9];
+const result6 = ques6.map(SquareNum);
+
+document.getElementById("ques6").innerText = ques6;
+
+function SquareNum(num6) {
+
+    return num6 * num6
+
+}
+document.getElementById("ques6_Ans").innerText = result6;
+
+//7.Write a JavaScript program for sort array in ascending descending.
+//numbers = [23,20,17, 12,5, 0, 1, 5, 12, 19, 20];
+
+const ques7 = [23, 20, 17, 12, 5, 0, 1, 5, 12, 19, 20];
+const ascending = [...ques7].sort(ascending_Num);
+const descending = [...ques7].sort(descending_Num);
+
+function ascending_Num(a, b) {
+    return a - b;
+}
+
+function descending_Num(x, y) {
+    return y - x;
+}
+
+document.getElementById("ques7").innerText = ques7;
+document.getElementById("ques7_Ansa").innerText = ascending;
+document.getElementById("ques7_Ansb").innerText = descending;
+
+//8. Write a JavaScript program which filters out any string which is less than 8 characters. 
+//words = ['Python', 'Javascript', 'Go', 'Java', 'PHP', 'Ruby'];
+
+let words = ["Java", "Python", "Javascript", "Go", "PHP", "Ruby"];
+
+document.getElementById("ques8").innerText = words;// Display the original array
+
+let result8 = words.filter(function (checkChar) {
+
+    return checkChar.length >= 8;//  words which have 8 or more characters
+
+});
+document.getElementById("ques8_Ans").innerText = result8;
+
+//9. write a JavaScript program to  to print expected output for following string.
+
+let word9_a = "airplane"; // Get the character at index 2
+let result9_a = word9_a.at(2);
+
+document.getElementById("ques9_Ans1").innerText = result9_a;
+
+let word9_b = "oxoxoxox";// Replace all lowercase x with uppercase X
+let result9_b = word9_b.replaceAll("x", "X");
+
+document.getElementById("ques9_Ans2").innerText = result9_b;
+
+let word9_c = "A New Java Book";
+
+document.getElementById("ques9_Ans3").innerText = word9_c.toLowerCase();// Convert the string into lowercase
+document.getElementById("ques9_Ans4").innerText = word9_c.toUpperCase();// Convert the string into uppercase
+
+//10. write a JavaScript program for array reverse.
+
+let ques10 = [2, 3, 10, 15, 20];
+document.getElementById("ques10").innerText = ques10;// Display the original array
+
+let result10 = ques10.reverse();
+document.getElementById("ques10_Ans").innerText = result10;
+
+//11. write a JavaScript program for check value is found or not?
+
+let ques11 = [10, 20, 30, 40, 50];
+document.getElementById("ques11").innerText = ques11;// Display the original array
+
+let checkValue = 50;
+document.getElementById("ques11_Value").innerText = checkValue;
+
+let result11 = ques11.includes(checkValue);
+document.getElementById("ques11_Ans").innerText = result11;
+
+//12. write a JavaScript program for print your name and write the no of total character.
+
+let ques12 = "Cristiano";
+document.getElementById("ques12").innerText = ques12;// Display the original String
+
+let charDigit = ques12.length;
+document.getElementById("ques12_Ans").innerText = charDigit;
+
+//13.  write a JavaScript program given this output using replace concept.
+let ques13 = "I often take a walk with my dog in the evening. His dog follows him everywhere. I don't feed my dog in the morning.";
+document.getElementById("ques13").innerText = ques13;// Display the original String
+
+let replaceWord = ques13.replaceAll( "dog", "cat");
+document.getElementById("ques13_Ans").innerText = replaceWord;
+
+//14.  write a JavaScript program convert string to array.
+let ques14 =  "Hire the top 1% freelance developers";
+document.getElementById("ques14").innerText = ques14;// Display the original String
+
+let changeString = ques14.split(" ").slice(0, 4);   
+document.getElementById("ques14_Ans").innerText = changeString;
+
+//15. write a JavaScript program convert for array to string.
+let ques15 =  ['8', 32, 'Daniel'];
+document.getElementById("ques15").innerText = ques15;// Display the original Array
+document.getElementById("ques15_type").innerText = Array.isArray(ques15) ? "Array" : typeof ques15;
+
+let changeArray = ques15.toString();
+document.getElementById("ques15_Ans").innerText = changeArray;
+document.getElementById("ques15_Ans_type").innerText =(typeof changeArray);
